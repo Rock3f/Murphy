@@ -16,5 +16,10 @@ public class Intro extends AppCompatActivity {
     private void playPartI() {
         MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.partone);
         mediaPlayer.start();
+
+        while(mediaPlayer.isPlaying())
+        {
+
+        }
     }
 }

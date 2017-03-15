@@ -14,12 +14,7 @@ public class Intro extends AppCompatActivity {
     }
 
     private void playPartI() {
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.partone);
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.discours1_1);
         mediaPlayer.start();
-
-        while(mediaPlayer.isPlaying())
-        {
-
-        }
     }
 }

@@ -17,8 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void playIntro(){
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.partone); // remplacer par les crédits et nouvelle partie
-        mediaPlayer.start();
+        
     }
 
     public void OnClickButton(View view) {

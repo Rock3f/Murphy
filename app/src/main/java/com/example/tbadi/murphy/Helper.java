@@ -9,4 +9,5 @@ import android.media.MediaPlayer;
 public class Helper {
 
     public static MediaPlayer mediaPlayer;
+    public static  MediaPlayer mediaPlayerLoop;
 }

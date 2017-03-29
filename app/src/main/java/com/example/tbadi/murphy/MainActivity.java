@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Switch;
 
 import static com.example.tbadi.murphy.Helper.GetIndexFromArrayInt;
 import static com.example.tbadi.murphy.Helper.SetValueToParamArrayFromSlideLeft;
@@ -57,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements
         mediaPlayerLoop = MediaPlayer.create(this, R.raw.mainmenusound);
         mediaPlayerLoop.setLooping(true);
         mediaPlayerLoop.start();
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.WelcomeSound);
+        mediaPlayer.start();
     }
 
     @Override
@@ -90,10 +91,31 @@ public class MainActivity extends AppCompatActivity implements
         {
             param = SetValueToParamArrayFromSlideLeft(param);
         }
+        PlaySoundMenu();
         return true;
     }
 
-
+    private void PlaySoundMenu()
+    {
+        switch(GetIndexFromArrayInt(param, 1))
+        {
+            case 0:
+                mediaPlayer = MediaPlayer.create(this, R.raw.NewGame);
+                mediaPlayer.start();
+                break;
+            case 1:
+                mediaPlayer = MediaPlayer.create(this, R.raw.LoadLastGame);
+                mediaPlayer.start();
+                break;
+            case 2:
+                mediaPlayer = MediaPlayer.create(this, R.raw.Options);
+                mediaPlayer.start();
+                break;
+            default:
+                //Do Nothing
+                break;
+        }
+    }
 
     @Override
     public void onLongPress(MotionEvent event) {

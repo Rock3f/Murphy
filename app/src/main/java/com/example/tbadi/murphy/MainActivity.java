@@ -10,6 +10,8 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
+import static com.example.tbadi.murphy.Helper.SetValueToParamArrayFromSlideLeft;
+import static com.example.tbadi.murphy.Helper.SetValueToParamArrayFromSlideRight;
 import static com.example.tbadi.murphy.Helper.mediaPlayer;
 import static com.example.tbadi.murphy.Helper.mediaPlayerLoop;
 
@@ -20,7 +22,8 @@ public class MainActivity extends AppCompatActivity implements
     private static final String DEBUG_TAG = "Gestures";
     private GestureDetectorCompat mDetector;
 
-    private int param [] = { 1,0,0,0};
+    private int param [] = { 1, 0, 0 };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         playMainMenuSong();
@@ -43,14 +46,9 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void playMainMenuSong(){
-        mediaPlayerLoop = MediaPlayer.create(this, R.raw.mainmenusong);
+        mediaPlayerLoop = MediaPlayer.create(this, R.raw.mainmenusound);
         mediaPlayerLoop.setLooping(true);
         mediaPlayerLoop.start();
-    }
-
-    public void OnClickButton(View view) {
-        Intent i = new Intent(this, Intro.class);
-        startActivity(i);
     }
 
     @Override
@@ -69,9 +67,25 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public boolean onFling(MotionEvent event1, MotionEvent event2,
                            float velocityX, float velocityY) {
-        Log.d(DEBUG_TAG, "onFling: " + event1.toString()+event2.toString());
+        if(mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                return true;
+            }
+        }
+
+        //Velocity > 0 = slide vers la droite
+        if(velocityX > 0)
+        {
+            param = SetValueToParamArrayFromSlideRight(param);
+        }
+        else
+        {
+            param = SetValueToParamArrayFromSlideLeft(param);
+        }
         return true;
     }
+
+
 
     @Override
     public void onLongPress(MotionEvent event) {

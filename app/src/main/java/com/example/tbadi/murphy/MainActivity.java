@@ -40,13 +40,16 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onPause() {
         super.onPause();
-        if(mediaPlayer.isPlaying())
-        {
-            mediaPlayer.stop();
+        if(mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
         }
 
-        if(mediaPlayerLoop.isPlaying()){
-            mediaPlayerLoop.stop();
+        if(mediaPlayerLoop != null) {
+            if (mediaPlayerLoop.isPlaying()) {
+                mediaPlayerLoop.stop();
+            }
         }
     }
 

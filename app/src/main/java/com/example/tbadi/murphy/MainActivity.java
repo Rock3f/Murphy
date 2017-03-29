@@ -9,7 +9,9 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Switch;
 
+import static com.example.tbadi.murphy.Helper.GetIndexFromArrayInt;
 import static com.example.tbadi.murphy.Helper.SetValueToParamArrayFromSlideLeft;
 import static com.example.tbadi.murphy.Helper.SetValueToParamArrayFromSlideRight;
 import static com.example.tbadi.murphy.Helper.mediaPlayer;
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private static final String DEBUG_TAG = "Gestures";
     private GestureDetectorCompat mDetector;
-    
+
     private int param [] = { 1, 0, 0 };
 
     @Override
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements
         if(mediaPlayer.isPlaying())
         {
             mediaPlayer.stop();
+        }
+
+        if(mediaPlayerLoop.isPlaying()){
             mediaPlayerLoop.stop();
         }
     }
@@ -124,7 +129,25 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent event) {
-        Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
+        switch(GetIndexFromArrayInt(param, 1))
+        {
+            case 0:
+                NavigateToIntro();
+                break;
+            case 1:
+            case 2:
+                break;
+            default:
+                //Do Nothing
+                break;
+        }
+
         return true;
+    }
+
+    private void NavigateToIntro()
+    {
+        Intent i = new Intent(this, Intro.class);
+        startActivity(i);
     }
 }

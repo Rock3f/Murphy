@@ -19,9 +19,10 @@ public class Helper {
             {
                 param[i] = 0;
 
-                if(param[(i-1)] < 0)
+                if( i == 0)
                 {
-                    param[0] = 1;
+                    int j = param.length - 1;
+                    param[j] = 1;
                 }
                 else
                 {
@@ -41,7 +42,7 @@ public class Helper {
             {
                 param[i] = 0;
 
-                if(param[(i+1)] > param.length)
+                if((i + 1 ) == param.length)
                 {
                     param[0] = 1;
                 }
@@ -52,6 +53,21 @@ public class Helper {
                 break;
             }
         }
+
         return param;
+    }
+
+    public static int GetIndexFromArrayInt(int param [], int value)
+    {
+        int index = 0;
+        for(int i = 0; i < param.length; i++)
+        {
+            if(param[i] == value)
+            {
+                index = i;
+                break;
+            }
+        }
+        return index;
     }
 }

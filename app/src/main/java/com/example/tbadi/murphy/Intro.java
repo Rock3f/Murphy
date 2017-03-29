@@ -22,11 +22,11 @@ public class Intro extends AppCompatActivity implements
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        playPartI();
-
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_intro);
         mDetector = new GestureDetectorCompat(this,this);
         mDetector.setOnDoubleTapListener(this);
-        setContentView(R.layout.activity_intro);
+        playPartI();
     }
 
     private void playPartI() {
@@ -104,5 +104,5 @@ public class Intro extends AppCompatActivity implements
         Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
         return true;
     }
-    
+
 }

@@ -22,7 +22,11 @@ public class MainActivity extends AppCompatActivity implements
     private static final String DEBUG_TAG = "Gestures";
     private GestureDetectorCompat mDetector;
 
+<<<<<<< HEAD
     private int param [] = { 1, 0, 0 };
+=======
+    private int param [] = { 1,0,0,0};
+>>>>>>> origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

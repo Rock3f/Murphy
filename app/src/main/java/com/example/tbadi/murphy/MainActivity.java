@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements
     private GestureDetectorCompat mDetector;
 
     private int param [] = { 1,0,0,0};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         playMainMenuSong();

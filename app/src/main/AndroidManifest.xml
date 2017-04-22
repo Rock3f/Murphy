@@ -9,21 +9,21 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar"
-        android:screenOrientation="portrait">
-        <!-- Splash screen --> 
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".SplashActivity"
-            android:label="@string/app_name">
-            <intent-filter> 
-                <action android:name="android.intent.action.MAIN" /> 
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
-                 </intent-filter> 
+            </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity" />
-        <activity
-            android:name=".Intro" />
+            android:name=".Intro"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ChapterI"></activity>
     </application>
 

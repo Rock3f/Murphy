@@ -56,7 +56,15 @@ public class MainActivity extends AppCompatActivity implements
         mediaPlayerLoop.setLooping(true);
         mediaPlayerLoop.start();
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.WelcomeSound);
+        mediaPlayer = MediaPlayer.create(this, R.raw.welcomesound);
+        mediaPlayer.start();
+
+        while(mediaPlayer.isPlaying())
+        {
+            //
+        }
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.newgame);
         mediaPlayer.start();
     }
 
@@ -100,15 +108,15 @@ public class MainActivity extends AppCompatActivity implements
         switch(GetIndexFromArrayInt(param, 1))
         {
             case 0:
-                mediaPlayer = MediaPlayer.create(this, R.raw.NewGame);
+                mediaPlayer = MediaPlayer.create(this, R.raw.newgame);
                 mediaPlayer.start();
                 break;
             case 1:
-                mediaPlayer = MediaPlayer.create(this, R.raw.LoadLastGame);
+                mediaPlayer = MediaPlayer.create(this, R.raw.loadlastgame);
                 mediaPlayer.start();
                 break;
             case 2:
-                mediaPlayer = MediaPlayer.create(this, R.raw.Options);
+                mediaPlayer = MediaPlayer.create(this, R.raw.options);
                 mediaPlayer.start();
                 break;
             default:
